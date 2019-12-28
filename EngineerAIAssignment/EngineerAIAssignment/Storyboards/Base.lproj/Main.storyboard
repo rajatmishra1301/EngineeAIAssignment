@@ -18,6 +18,21 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3lB-iT-Sit">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="e0N-qT-92t">
+                                    <rect key="frame" x="0.0" y="111.5" width="414" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="coW-Tx-P0E">
+                                            <rect key="frame" x="197" y="12" width="20" height="20"/>
+                                            <color key="color" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </activityIndicatorView>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    <constraints>
+                                        <constraint firstItem="coW-Tx-P0E" firstAttribute="centerY" secondItem="e0N-qT-92t" secondAttribute="centerY" id="Lth-Vh-rLf"/>
+                                        <constraint firstItem="coW-Tx-P0E" firstAttribute="centerX" secondItem="e0N-qT-92t" secondAttribute="centerX" id="wbs-Fa-7xR"/>
+                                    </constraints>
+                                </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostsTableCell" textLabel="oef-xa-WeP" detailTextLabel="vxr-Ku-Fsg" style="IBUITableViewCellStyleSubtitle" id="xX5-b5-rr6" customClass="PostTableViewCell" customModule="EngineerAIAssignment" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="55.5"/>
@@ -26,7 +41,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="55.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Post Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oef-xa-WeP">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Post Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oef-xa-WeP">
                                                     <rect key="frame" x="20" y="10" width="72" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -60,18 +75,36 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="r30-GW-Gk6"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xxA-4Q-Ocm">
+                                <rect key="frame" x="20" y="475" width="374" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="law-5L-0BV">
+                                <rect key="frame" x="188.5" y="456.5" width="37" height="37"/>
+                                <color key="color" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="xxA-4Q-Ocm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="3Ku-Xh-qUk"/>
                             <constraint firstItem="3lB-iT-Sit" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="9TA-cd-fTs"/>
+                            <constraint firstItem="law-5L-0BV" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="AN0-gi-Fwx"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xxA-4Q-Ocm" secondAttribute="trailing" constant="20" id="Lmw-Dz-qqV"/>
+                            <constraint firstItem="xxA-4Q-Ocm" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="PpO-uC-8pg"/>
                             <constraint firstItem="3lB-iT-Sit" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Tab-ap-v1Y"/>
                             <constraint firstAttribute="trailing" secondItem="3lB-iT-Sit" secondAttribute="trailing" id="bpr-HW-fAw"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="3lB-iT-Sit" secondAttribute="bottom" id="rBZ-Zq-n4v"/>
+                            <constraint firstItem="law-5L-0BV" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="rf8-gZ-gOW"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="LuK-nm-r6O"/>
                     <connections>
+                        <outlet property="dataLoadIndicatorView" destination="law-5L-0BV" id="dTB-n8-Sv1"/>
+                        <outlet property="errorMessageLabel" destination="xxA-4Q-Ocm" id="qfo-oQ-Po9"/>
+                        <outlet property="loadMoreIndicatorView" destination="coW-Tx-P0E" id="vx8-zv-h8P"/>
                         <outlet property="postsTableView" destination="3lB-iT-Sit" id="cvD-Lu-NMd"/>
                     </connections>
                 </viewController>
