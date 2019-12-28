@@ -117,16 +117,6 @@ class PostsViewController: UIViewController {
     
 }
 
-extension PostsViewController: PostTableViewCellDelegate {
-    
-    func didTapOnSwitch(newValue: Bool, forPostIndex: Int?) {
-        if let selectedPostIndex = forPostIndex {
-            let oldValue = self.posts[selectedPostIndex].isSelected
-            self.posts[selectedPostIndex].isSelected = !oldValue
-        }
-    }
-}
-
 extension PostsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -137,9 +127,7 @@ extension PostsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let postTableCell = tableView.dequeueReusableCell(withIdentifier: TableCellIdentifiers.PostsTableCell, for: indexPath) as! PostTableViewCell
-        postTableCell.index = indexPath.row
         postTableCell.post = posts[indexPath.row]
-        postTableCell.postCellDelegate = self
         return postTableCell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
