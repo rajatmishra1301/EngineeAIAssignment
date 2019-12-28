@@ -24,7 +24,7 @@ class PostTableViewCell: UITableViewCell {
         didSet {
             guard let postDetail = post else { return }
             textLabel?.text = postDetail.title
-            detailTextLabel?.text = postDetail.created_at
+            detailTextLabel?.text = (postDetail.created_at ?? "").convertToDisplayDate()
             selectPostSwitch.isOn = postDetail.isSelected
         }
     }

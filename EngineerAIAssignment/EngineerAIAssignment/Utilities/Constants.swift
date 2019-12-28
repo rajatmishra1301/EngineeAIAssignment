@@ -26,3 +26,17 @@ class Constants {
         vc.present(alertController, animated: true, completion: nil)
     }
 }
+
+extension String {
+    
+    func convertToDisplayDate() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.000Z"
+        if let date = dateFormatter.date(from: self) {
+            dateFormatter.dateStyle = .full
+            return dateFormatter.string(from: date)
+        }
+        return self
+    }
+    
+}
