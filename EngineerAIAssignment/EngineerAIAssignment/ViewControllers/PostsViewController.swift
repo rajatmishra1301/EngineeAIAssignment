@@ -20,7 +20,7 @@ class PostsViewController: UIViewController {
     private var page: Int = 1
     private var posts: [Post] = [] {
         didSet {
-            navigationItem.title = self.posts.count == 0 ? "" : "\(self.posts.count) Posts"
+            navigationItem.title = self.posts.count == 0 ? "No posts available" : "\(self.posts.count) Posts"
         }
     }
     
@@ -78,8 +78,12 @@ class PostsViewController: UIViewController {
                 }
                 break
             case .failure(let error):
-                print(error.localizedDescription)
-                self.errorMessageLabel.text = error.errorDescription
+                let errorMessage = APIClient.handleFailure(for: error)
+                if self.posts.count == 0 {
+                    self.errorMessageLabel.text = errorMessage
+                } else {
+                    Constants.showAlert(withMessage: errorMessage, on: self)
+                }
                 break
             }
             if self.posts.count == 0 {
